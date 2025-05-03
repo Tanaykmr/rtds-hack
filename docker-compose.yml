@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    ports:
+      - "4000:4000"
+    environment:
+      - DB_HOST=mongo
+      - DB_PORT=27017
+      - DB_NAME=mern_docker_starter
+      - DB_USER=local_user
+      - DB_PASSWORD=Password123
+      - NODE_ENV=development
+      - PORT=4000
+      - JWT_SECRET=your_jwt_secret
+      - JWT_EXPIRE=1h
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6.0
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=local_user
+      - MONGO_INITDB_ROOT_PASSWORD=Password123
+      - MONGO_INITDB_DATABASE=mern_docker_starter
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
