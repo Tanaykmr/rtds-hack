@@ -13,7 +13,7 @@ console.log("Server port:", process.env.REACT_APP_SERVER_PORT);
 const baseURL = isProduction
   ? "https://<your-production-domain>/api"
   // : "http://localhost:4000";
-  : `http://devops001.theacecloud.co:${process.env.REACT_APP_SERVER_PORT || 3001}`;
+  : `http://localhost:${process.env.REACT_APP_SERVER_PORT || 3001}`;
 
 const defaultOptions = {
   baseURL,
