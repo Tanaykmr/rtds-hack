@@ -1,6 +1,15 @@
 # Video link
 THE VIDEO LINK IS HERE: https://www.loom.com/share/1d245fc6d7124c13ac0436a944092d5a?sid=a6a6764d-feac-4fa3-9241-959cdfe9bd58
 
+# TO RUN THE PROJECT
+starter script: `docker compose up -d`
+
+
+
+
+
+
+
 # MERN DevOps Hackathon – Starter Repository
 A stripped-down codebase ready for full containerisation, routing, TLS and CI/CD_
 
